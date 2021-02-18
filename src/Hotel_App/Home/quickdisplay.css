@@ -1,0 +1,13 @@
+.quicksearch{
+    display: flex;
+    padding: 34px;
+    width: 100%;
+    margin-left: 40px;
+    
+}
+.card{
+    margin-left: 10px;
+}
+.card img{
+    height: 250px;
+}

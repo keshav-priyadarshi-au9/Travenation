@@ -1,0 +1,166 @@
+{
+  "booking_details": [
+    {
+      "id": 9759,
+      "hotel_name": "The Piccadily",
+      "name": "Pooja Kumari",
+      "phone": "9504583841",
+      "checkIn": "2020-12-28",
+      "checkOut": "2020-12-29",
+      "status": "Confirm"
+    },
+    {
+      "id": 6864,
+      "hotel_name": "Snow Bliss",
+      "name": "Ravi Priyadarshi",
+      "phone": "9525207774",
+      "checkIn": "2020-12-27",
+      "checkOut": "2020-12-28",
+      "status": "Pending"
+    },
+    {
+      "id": 5562,
+      "hotel_name": "The Piccadily",
+      "name": "Abhishek Jaiswal",
+      "phone": "9504583841",
+      "checkIn": "2020-12-28",
+      "checkOut": "2020-12-29",
+      "status": "Confirm"
+    },
+    {
+      "id": 7761,
+      "hotel_name": "Vivaan - The Sun Rise",
+      "name": "Ayushman Khurana",
+      "phone": "541442",
+      "checkIn": "2020-12-30",
+      "checkOut": "2020-12-31",
+      "status": "Confirm"
+    },
+    {
+      "id": 3727,
+      "hotel_name": "Hometel Chandigarh",
+      "name": "Mukul Pandey",
+      "phone": "123456",
+      "checkIn": "2020-12-28",
+      "checkOut": "2020-12-29",
+      "status": "Pending"
+    },
+    {
+      "id": 3751,
+      "hotel_name": "The Leela Goa",
+      "name": "Paridhi Kumari",
+      "phone": "123456789",
+      "checkIn": "2020-12-30",
+      "checkOut": "2020-12-31",
+      "status": "Confirm"
+    },
+    {
+      "id": 8153,
+      "hotel_name": "Hometel Chandigarh",
+      "name": "Nandha",
+      "phone": "564782165",
+      "checkIn": "2020-12-11",
+      "checkOut": "2020-12-12",
+      "status": "Pending"
+    },
+    {
+      "id": 555,
+      "hotel_name": "Roseate House",
+      "name": "Yuvraj Singh",
+      "phone": "6589874656",
+      "checkIn": "2020-12-02",
+      "checkOut": "2020-12-03",
+      "status": "Pending"
+    },
+    {
+      "id": 1421,
+      "hotel_name": "Rodas - An Ecotel Hotel",
+      "name": "Harsh",
+      "phone": "659874123",
+      "checkIn": "2021-01-08",
+      "checkOut": "2021-01-10",
+      "status": "Confirm"
+    },
+    {
+      "id": 7238,
+      "hotel_name": "Westwood Residence",
+      "name": "Roushan Raj",
+      "phone": "52492366997",
+      "checkIn": "2021-01-19",
+      "checkOut": "2021-01-20",
+      "status": "Confirm"
+    },
+    {
+      "id": 6465,
+      "hotel_name": "Snow Bliss",
+      "name": "Ankit Kumar",
+      "phone": "12546987",
+      "checkIn": "2021-01-15",
+      "checkOut": "2021-01-16",
+      "status": "Confirm"
+    },
+    {
+      "id": 7756,
+      "hotel_name": "The Piccadily",
+      "name": "Keshav Priyadarshi",
+      "phone": "9504587412",
+      "checkIn": "2021-01-17",
+      "checkOut": "2021-01-18",
+      "status": "Confirm"
+    },
+    {
+      "id": 9744,
+      "hotel_name": "Snow Bliss",
+      "name": "Ritik Kumar",
+      "phone": "958647123",
+      "checkIn": "2021-01-31",
+      "checkOut": "2021-02-02",
+      "status": "Confirm"
+    },
+    {
+      "id": 6033,
+      "hotel_name": "Snow Bliss",
+      "name": "Monu Kumar",
+      "phone": "985641238",
+      "checkIn": "2021-01-21",
+      "checkOut": "2021-01-22",
+      "status": "Confirm"
+    },
+    {
+      "id": 2029,
+      "hotel_name": "The Piccadily",
+      "name": "Nandha Kumar",
+      "phone": "875496231",
+      "checkIn": "2021-01-03",
+      "checkOut": "2021-01-04",
+      "status": "Confirm"
+    },
+    {
+      "id": 7781,
+      "hotel_name": "Rodas - An Ecotel Hotel",
+      "name": "Shanvi Chaudhary",
+      "phone": "07903529121",
+      "checkIn": "2021-01-01",
+      "checkOut": "2021-01-02",
+      "status": "Rejected"
+    },
+    {
+      "id": 5160,
+      "hotel_name": "Roseate House",
+      "name": "Kjais",
+      "phone": "8745416515",
+      "checkIn": "2021-01-02",
+      "checkOut": "2021-01-03",
+      "status": "Confirm"
+    },
+    {
+      "id": 9732,
+      "hotel_name": "Roseate House",
+      "name": "Abhishek Jaiswal",
+      "phone": "9504583841",
+      "checkIn": "2021-01-01",
+      "checkOut": "2021-01-02",
+      "status": "Rejected"
+    }
+  ]
+}

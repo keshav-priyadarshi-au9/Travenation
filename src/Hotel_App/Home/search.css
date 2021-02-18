@@ -1,0 +1,19 @@
+.search{
+    text-align: center;
+    padding: 34px;
+    /* border: 2px solid tomato; */
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.dropdown{
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid khaki;   
+}
+
+#hotelname{
+    width: 2000px;
+}

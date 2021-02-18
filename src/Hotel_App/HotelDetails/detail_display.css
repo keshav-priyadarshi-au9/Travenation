@@ -1,0 +1,12 @@
+.hotel_details_main{
+    height: 120vh;
+}
+.hotel_details{
+    padding: 34px;
+    text-align: center;
+}
+.hotel_details img{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
