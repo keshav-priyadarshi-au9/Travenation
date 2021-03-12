@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 
-
-
-const bURL = "http://localhost:2400/bookings"
-
+// const bURL = "http://localhost:2400/bookings"
+const bURL = "https://travenation-controller.herokuapp.com/bookings"
 
 
 class FilterBookings extends Component{
@@ -33,7 +31,7 @@ class FilterBookings extends Component{
         if(data){
             return data.map((items)=>{
                 return(
-                    <option>
+                    <option key={items._id}>
                         {items.hotel_name} 
                     </option>
                 )

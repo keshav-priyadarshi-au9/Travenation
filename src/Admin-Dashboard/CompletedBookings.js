@@ -2,7 +2,8 @@ import React from 'react' ;
 // import axios from 'axios' ;
 import {Link} from 'react-router-dom'
 
-const bURL = "http://localhost:2400/bookings"
+// const bURL = "http://localhost:2400/bookings"
+const bURL = "https://travenation-controller.herokuapp.com/bookings"
 const tdate = new Date()
 
 class CompletedBookings extends React.Component{

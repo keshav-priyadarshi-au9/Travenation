@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-const bURL = "  http://localhost:2400/bookings/generate_booking"
-// const userinfo_URL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/userInfo"
+// const bURL = "  http://localhost:2400/bookings/generate_booking"
+const bURL = "https://travenation-controller.herokuapp.com/bookings/generate_booking"
 
 
 class BookingForm extends Component{
@@ -57,7 +57,7 @@ class BookingForm extends Component{
                 },
                 body:JSON.stringify(this.state)
             })
-            // .then(data=>data.json())
+            .then(data=>data.json())
             .then(alert('Thanks for Choosing Us. Your booking has been placed'))
             this.props.history.push('/viewbookings')
         }

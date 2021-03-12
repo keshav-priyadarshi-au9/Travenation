@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Spinner } from "react-bootstrap";
 
-const bURL = "http://localhost:2400/bookings";
+// const bURL = "http://localhost:2400/bookings";
+const bURL = "https://travenation-controller.herokuapp.com/bookings"
 
 class View_Booking extends Component {
   state = {

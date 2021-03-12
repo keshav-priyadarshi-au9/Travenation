@@ -1,9 +1,10 @@
 import React from "react";
 import { Component } from "react";
 import {Link} from 'react-router-dom'
-const profileURL = "http://localhost:2400/api/auth/users"
-// const profileURL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/users"
+import { Spinner } from "react-bootstrap";
 
+// const profileURL = "http://localhost:2400/api/auth/users"
+const profileURL = "https://travenation-controller.herokuapp.com/api/auth/users"
 
 class View_Users extends Component{
   constructor(props){
@@ -24,7 +25,7 @@ class View_Users extends Component{
     if (userData) {
       return userData.map((item) => {
         return (
-          <tr>
+          <tr key={item._id}>
             <td>{item._id}</td>
             <td>{item.name}</td>
             <td>{item.email}</td>
@@ -32,6 +33,13 @@ class View_Users extends Component{
           </tr>
         );
       });
+    }
+    else {
+      return (
+      <tr>
+        <td><Spinner animation="border" role="status"></Spinner></td>
+      </tr>
+      )
     }
   };
   render(){

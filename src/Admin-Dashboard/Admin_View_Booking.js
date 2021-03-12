@@ -4,7 +4,8 @@ import { Spinner } from "react-bootstrap";
 import FilterUsingHotel from "./FilterBookings";
 // import axios from 'axios'
 
-const bURL = "http://localhost:2400/bookings";
+// const bURL = "http://localhost:2400/bookings";
+const bURL = "https://travenation-controller.herokuapp.com/bookings"
 // const tdate = new Date()
 
 class Admin_View_Booking extends Component {
@@ -47,7 +48,7 @@ class Admin_View_Booking extends Component {
       _id:_id,
     };
 
-    fetch(`http://localhost:2400/bookings/accept_booking`, {
+    fetch(`https://travenation-controller.herokuapp.com/bookings/accept_booking`, {
       method: "POST",
       headers: {
         "Application-Type": "application/json",
@@ -71,7 +72,7 @@ class Admin_View_Booking extends Component {
       _id:_id,
     };
 
-    fetch(`http://localhost:2400/bookings/reject_booking`, {
+    fetch(`https://travenation-controller.herokuapp.com/bookings/reject_booking`, {
       method: "POST",
       headers: {
         "Application-Type": "application/json",
@@ -95,7 +96,7 @@ class Admin_View_Booking extends Component {
     if (data) {
       return data.map((items) => {
         return (
-          <tr key={items.id}>
+          <tr key={items._id}>
             <td>{items._id}</td>
             <td>{items.hotel_name}</td>
             <td>{items.name}</td>
@@ -129,7 +130,11 @@ class Admin_View_Booking extends Component {
       });
     } 
     else {
-      return <Spinner animation="border" role="status"></Spinner>
+      return (
+      <tr>
+        <td><Spinner animation="border" role="status"></Spinner></td>
+      </tr>
+      )
     }
   };
 
@@ -178,7 +183,6 @@ class Admin_View_Booking extends Component {
               <th scope="col">Approval</th>
             </tr>
           </thead>
-
           <tbody>
             {this.renderData(this.state.bookingData)}
           </tbody>

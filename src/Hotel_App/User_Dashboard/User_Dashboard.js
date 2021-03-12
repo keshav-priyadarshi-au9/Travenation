@@ -3,8 +3,8 @@ import { Component } from 'react';
 import {Link} from 'react-router-dom'
 import profile from '../images/profilePic.png'
 
-const userinfo_URL = "http://localhost:2400/api/auth/userInfo"
-// const userinfo_URL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/userInfo"
+// const userinfo_URL = "http://localhost:2400/api/auth/userInfo"
+const userinfo_URL = "https://travenation-controller.herokuapp.com/api/auth/userInfo"
 
 class User_Profile extends Component{
     constructor(props){

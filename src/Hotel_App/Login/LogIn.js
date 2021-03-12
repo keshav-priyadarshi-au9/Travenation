@@ -2,8 +2,8 @@ import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-const logURL=" http://localhost:2400/api/auth/login";
-// const logURL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/login";
+// const logURL=" http://localhost:2400/api/auth/login";
+const logURL = "https://travenation-controller.herokuapp.com/api/auth/login";
 
 class LogIn extends Component {
   state = {
