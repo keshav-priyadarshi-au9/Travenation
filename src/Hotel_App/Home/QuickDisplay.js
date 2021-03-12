@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./quickdisplay.css";
+import {Spinner} from 'react-bootstrap'
+// import "./quickdisplay.css";
 
 const QuickDisplay = (props) => {
 
@@ -8,32 +9,37 @@ const QuickDisplay = (props) => {
     if (tripType_data) {
       return tripType_data.map((item) => {
         return (
-            <div className="card" style={{ width: "18rem" }}>
+          <div className="col-md-6" key={item.trip}>
+
+            <div className="card" style={{ marginBottom: "50px", height: "60vh", padding: "10px" }}>
               <img
                 src={item.image}
-                className="card-img-top"
+                style={{height:"250px"}}
                 alt="triptypeimage"
-              />
+                />
               <div className="card-body">
                 <p className="card-text">
                   Start your trip in {item.name} style{" "}
                 </p>
-                <Link to={`/list/${item.trip}`} className="btn btn-primary">
+                <Link to={`/list/${item.trip}`} className="btn btn-outline-secondary">
                   {item.name}
                 </Link>
               </div>
             </div>
+          </div>
         );
       });
     }
     else{
-      return(
-          <center style={{marginLeft:"40%"}}><h1>LOADING....</h1></center>
-      )
+      return(  
+        <Spinner animation="border" role="status"></Spinner> 
+      )     
   }
   };
   
-  return <center className="quicksearch">{renderTripType(props)}</center>;
+  return (
+    <>{renderTripType(props)}</>
+  )
 };
 
 export default QuickDisplay;

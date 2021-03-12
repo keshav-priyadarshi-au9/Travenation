@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './costfilter.css';
 const costURL = "https://developerfunnel.herokuapp.com/hotellist/" 
 // 1?hcost=1000&lcost=500
 
 class CostFilter extends Component{
     handleChange=(event)=>{
         let value_data = event.target.value
-        console.log(typeof value_data)
+        // console.log(typeof value_data)
         let tripID = sessionStorage.getItem('tripid')
-        console.log(`event value ${value_data} and tripid ${tripID}`)
+        // console.log(`event value ${value_data} and tripid ${tripID}`)
     
         let new_url;
         if (value_data === ""){
@@ -31,7 +30,7 @@ class CostFilter extends Component{
     render(){
         return(
             <div>
-                <div className="card" onChange={this.handleChange}>
+                <div className="card" onChange={this.handleChange} style={{padding:"10px"}}>
                     <h5>Cost Filter</h5>
                     <label className="radio">
                         <input type="radio" value="" name="room"/>All

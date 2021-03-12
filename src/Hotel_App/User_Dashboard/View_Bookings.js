@@ -1,42 +1,62 @@
 import React, { Component } from "react";
-import axios from 'axios'
-import './view_booking.css'
+import { Spinner } from "react-bootstrap";
 
-const bURL = "http://localhost:8900/booking_details";
-const tdate = new Date()
+const bURL = "http://localhost:2400/bookings";
 
 class View_Booking extends Component {
   state = {
     bookingData: "",
   };
 
+
+  componentDidMount(){
+
+    let email = sessionStorage.getItem('email')
+
+    fetch(bURL, {method:'GET',
+      headers:{ 'x-access-token': sessionStorage.getItem('login_token')},
+    })
+    
+    .then(data=>data.json())
+
+    .then(data=>{
+      this.setState({bookingData: data.filter((item)=>{
+        return(
+          item.email === email
+        )
+      })})
+    })
+}
+
+
   renderData=(data)=>{
       if(data){
-      return data.map((items)=>{
-          return(
-            <tr key={items.id}>
-              <td>{items.id}</td>
-              <td>{items.hotel_name}</td>
-              <td>{items.name}</td>
-              <td>{items.phone}</td>
-              <td>{items.checkIn}</td>
-              <td>{items.checkOut}</td>
-              <td>{items.status}</td>
-            </tr>
-          )
-      })
-
+       
+          return data.map((items)=>{
+            return(
+              <tr key={items._id}>
+                <td>{items._id}</td>
+                <td>{items.hotel_name}</td>
+                <td>{items.name}</td>
+                <td>{items.phone}</td>
+                <td>{items.checkIn}</td>
+                <td>{items.checkOut}</td>
+                <td>{items.status}</td>
+              </tr>
+            )
+        })
     }
+   
     else{
       return(
-        <h1 style={{color:'black'}}>Loading....</h1>
+        <Spinner animation="border" role="status"></Spinner>
       )
     }
   }
 
   render() {
     return (
-      <div className="view_Booking">
+      <div style={{padding:"34px", height:"80vh"}}>
         <h1>Booking Details</h1>
         <hr/>
         <table id="table" className="table table-striped">
@@ -51,24 +71,16 @@ class View_Booking extends Component {
               <th scope="col">Booking Status</th>
             </tr>
           </thead>
+          
           <tbody>
             {this.renderData(this.state.bookingData)}
           </tbody>
+           
         </table>
-        <center><h4>Thanks for your Booking</h4></center>
       </div>
     );
   }
-  async componentDidMount(){
-    const today = `${tdate.getFullYear()}-${tdate.getMonth()+1}-${tdate.getDate()}`
-    const response = await axios.get(bURL);
-    this.setState({bookingData : response.data.filter((item)=>{
-        return(
-             item.checkIn >= today
-        )
-     })
-})
-}
+ 
 }
 
 export default View_Booking;

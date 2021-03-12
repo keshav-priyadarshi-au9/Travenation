@@ -1,8 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import {Link} from 'react-router-dom'
-import './view_users.css'
 const profileURL = "http://localhost:2400/api/auth/users"
+// const profileURL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/users"
+
 
 class View_Users extends Component{
   constructor(props){
@@ -21,10 +22,10 @@ class View_Users extends Component{
   renderUserDetails = (userData) => {
     // console.log("user details", userData);
     if (userData) {
-      return userData.map((item, index) => {
+      return userData.map((item) => {
         return (
           <tr>
-            <td>{index}</td>
+            <td>{item._id}</td>
             <td>{item.name}</td>
             <td>{item.email}</td>
             <td>{item.role}</td>
@@ -35,20 +36,20 @@ class View_Users extends Component{
   };
   render(){
   return (
-    <div className="view_users">
+    <div style={{padding:"34px"}}>
       <h1>List Of Users</h1>
       <hr/>
-        <Link to="/admindashboard"><button style={{marginBottom:"10px",color:'black'}} className="btn btn-outline-secondary" type="submit">Back</button></Link>
+        <Link to="/admindashboard"><button style={{marginBottom:"10px", width:"150px"}} className="btn btn-outline-secondary" type="submit">Back</button></Link>
         <div>
             
         </div>
       <table className="table table-striped">
         <thead>
           <tr>
-            <td>S.No.</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Role</td>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
           </tr>
         </thead>
         <tbody>{this.renderUserDetails(this.state.users)}</tbody>

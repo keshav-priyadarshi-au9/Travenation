@@ -1,9 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
 import {Link} from 'react-router-dom'
-import './signup.css'
 
-const regURL = "http://localhost:2400/api/auth/register" //post api for registering the user
+const regURL = "http://localhost:2400/api/auth/register" 
+// const regURL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/register"
 
 class SignUp extends Component{
     state={
@@ -23,7 +23,7 @@ class SignUp extends Component{
 
     submit_form=()=> {
         if(this.state.email && this.state.name && this.state.password){
-            console.log(this.state)
+            // console.log(this.state)
             fetch((regURL),{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
             body:JSON.stringify(this.state)
             })
@@ -37,17 +37,31 @@ class SignUp extends Component{
 
     render(){
         return(
-            <div className="signup">
+            <div className="col-md-8 offset-2" style={{ marginTop: "50px", marginBottom: "50px" }}>
+
                 <div className="signup-input" onChange={this.handler}>
-                    <h3>SignUp</h3>
-                    Enter your name : <input className="form-control" name="name" type="text" placeholder="fullname" />
-                    Enter your E-mail : <input className="form-control" name="email" type="email" placeholder="e-mail"/>
-                    Enter your Password : <input className="form-control" name="password" type="password" placeholder="password"/>
+                    <h2>SignUp</h2>
+                    <hr/>
+
+                    <i><h5>Enter your name</h5></i> 
+                    <input className="form-control" name="name" type="text" placeholder="fullname" />
+                    <br/>
+
+                    <i><h5>Enter your E-mail</h5></i> 
+                    <input className="form-control" name="email" type="email" placeholder="e-mail"/>
+                    <br/>
+
+                    <i><h5>Enter your Password</h5></i>  
+                    <input className="form-control" name="password" type="password" placeholder="password"/>
+                    <br/>
+
                 </div>
-                <center>
-                    <button className="btn btn-primary" type="submit" onClick={this.submit_form}>Submit</button>
+
+                <div>
+                    <button style={{width:"150px"}} className="btn btn-outline-secondary" type="submit" onClick={this.submit_form}>Submit</button>
                     <p>Already a user? <Link to="/login">LogIn</Link> </p>
-                </center>
+                </div>
+
             </div>
         )
     }

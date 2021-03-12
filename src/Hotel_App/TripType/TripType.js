@@ -30,12 +30,22 @@ class TripType extends Component {
         this.setState({tripType_result:sortedData})
     }
     render() {
-        console.log("In tripType page props are: ",this.props)
-        console.log("state triptype: ", this.state)
+        // console.log("In tripType page props are: ",this.props)
+        // console.log("state triptype: ", this.state)
         return (
-            <div style={{display:"flex"}}>
-                <CostFilter atcostHotel = {(data)=>{this.filterData(data)}}/>
-                <TripDisplay hotel_data = {this.state.tripType_result}/>
+            <div style={{padding:"34px"}}>
+                <div className="offset-2">
+                    <h1>Hotels</h1>
+                    <hr/>
+                </div>
+                <div className="row">
+                    <div className="col-md-2">
+                        <CostFilter  atcostHotel = {(data)=>{this.filterData(data)}}/>
+                    </div>
+                    <div className="col-md-10">
+                        <TripDisplay  hotel_data = {this.state.tripType_result}/>
+                    </div>
+                </div>
             </div>
         )
     }

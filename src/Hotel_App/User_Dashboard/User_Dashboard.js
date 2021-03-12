@@ -1,9 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
-import './user_dashboard.css'
+import {Link} from 'react-router-dom'
 import profile from '../images/profilePic.png'
 
 const userinfo_URL = "http://localhost:2400/api/auth/userInfo"
+// const userinfo_URL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/userInfo"
 
 class User_Profile extends Component{
     constructor(props){
@@ -14,60 +15,72 @@ class User_Profile extends Component{
             error:""
         }
     }
+
+
+    componentDidMount(){
+        fetch((userinfo_URL),{method:'GET',
+        headers:{'x-access-token': sessionStorage.getItem('login_token')},
+    })
+        .then((res)=>res.json())
+        .then((data)=>{
+            this.setState({user:data})
+            sessionStorage.setItem("email",data.email)
+        })
+    } 
+
+
+
     render(){
-        // if(sessionStorage.getItem('login_token') == null){
-        //     this.props.history.push('/login')
-        // }
         sessionStorage.setItem('role',this.state.user.role)
         return(
-            <div className="dashboard">
-                <div className="sidebar">
-                    <img src={profile} alt="profilepic"/>
-                    <h4>{this.state.user.name}</h4>
-                    <h6>{this.state.user.role}</h6>
+            <div className="row" style={{padding:"34px"}}>
+                <div className="col-md-3">
+                    <img style={{width:"90%"}} src={profile} alt="profilepic"/>
+                    
+                    <div style={{marginTop:"20px"}}>
+                        <h4>{this.state.user.name}</h4>
+                        <h6>{this.state.user.role}</h6>
+                    </div>
+
                 </div>
-                <div className="section">
-                    {/* <h3>Welcome To Dashboard</h3>
-                    <hr/> */}
+                <div className="col-md-9">
                     <h4>Information</h4>
                     <hr/>
-                    <div className="information">
-                        <div className="name">
-                            <h5>Name</h5> 
-                            <h6>{this.state.user.name}</h6>
-                        </div>
-                        <div className="email">
-                            <h5>E-mail</h5>
-                            <h6>{this.state.user.email}</h6>
-                        </div>
-                    </div>
+                    
+                    <h5><i>Name</i></h5> 
+                    <h6>{this.state.user.name}</h6>
+                
+                    <h5><i>E-mail</i></h5>
+                    <h6>{this.state.user.email}</h6>
+
+                    <br/> 
+
                     <h4>Position</h4>
                     <hr/>
-                    <h6>Your Role : {this.state.user.role}</h6>
-                    {/* <div className="view-button">
-                        {sessionStorage.getItem('role')==='Admin'?
+                    <h5><i>Role</i></h5>
+                    <h6>{this.state.user.role}</h6>
+                   
+                    <br/>
+
+                    <h4>Bookings</h4>
+                    <hr/>
+                    <div className="view-button">
+                        {sessionStorage.getItem('role')==='admin'?
                     
                         <Link to="/admindashboard">
-                            <button className="btn btn-outline-warning" type="submit" >Admin Dashboard</button>
+                            <button className="btn btn-outline-success" type="submit" >Admin Dashboard</button>
                         </Link>
                         :
-                        <Link to="viewbookings">
-                            <button className="btn btn-outline-warning" type="submit">My Bookings</button>
+                        <Link to="/viewbookings">
+                            <button className="btn btn-outline-secondary" type="submit">Your Bookings</button>
                         </Link>
                         }
-                    </div> */}
+                    </div>
                 </div>
             </div>
         )
     }
-   componentDidMount(){
-       fetch((userinfo_URL),{method:'GET',
-       headers:{'x-access-token': sessionStorage.getItem('login_token')}})
-       .then((res)=>res.json())
-       .then((data)=>this.setState({
-           user:data
-       }))
-   } 
+  
 }
 
 export default User_Profile;

@@ -22,11 +22,11 @@ class QuickSearch extends Component{
         })
     }
     render(){
-        console.log(this.state.tripType)
+        // console.log(this.state.tripType)
         return(
-            <div className='quickSearch'>
-                <QuickDisplay tripType_data={this.state.tripType}/>
-            </div>
+           
+            <QuickDisplay tripType_data={this.state.tripType}/>
+           
         )
     }
 }

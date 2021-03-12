@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './admin_dashboard.css'
+
 
 class Admin_Dashboard extends Component{
 
@@ -14,20 +14,22 @@ class Admin_Dashboard extends Component{
             this.props.history.push('/dashboard')
         }
         return(
-            <div className="container">
+            <div className="col-md-8 offset-2" style={{height:"80vh"}}>
                 <div className="adminDashboard">
                     <h1>Welcome to Admin Dashboard</h1>
                     <hr/>
                 </div>
-                <div className="options">
+                <div>
                     <Link to="/viewusers">
-                        <button style={{marginTop:"10px",color:'black'}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>View Registered Users</button>
+                        <button style={{marginTop:"10px", width:"200px"}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>View Registered Users</button>
                     </Link>
+                    <br/>
                     <Link to="/adminviewbookings">
-                        <button style={{marginTop:"10px",color:'black'}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>All Bookings</button>
+                        <button style={{marginTop:"10px",width:"200px"}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>All Bookings</button>
                     </Link>
+                    <br/>
                     <Link to="/completedbooking">
-                        <button style={{marginTop:"10px",color:'black'}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>Completed Bookings</button>
+                        <button style={{marginTop:"10px",width:"200px"}} className="btn btn-outline-danger" type="submit" onClick={this.registerUser}>Completed Bookings</button>
                     </Link>
                 </div>
             </div>

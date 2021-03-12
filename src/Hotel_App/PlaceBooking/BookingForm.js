@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import './booking_form.css'
 
-const bURL = "  http://localhost:8900/booking_details"
+const bURL = "  http://localhost:2400/bookings/generate_booking"
+// const userinfo_URL = "https://jsonwebtokenlogin.herokuapp.com/api/auth/userInfo"
+
 
 class BookingForm extends Component{
     constructor(props){
         super(props)
 
         this.state={
-            id : Math.floor(Math.random()*10000),
             hotel_name : sessionStorage.getItem('hotel_name'),
             name : "",
+            email : "",
             phone : "",
             checkIn : "",
             checkOut : "",
             status : "Pending"
         }
     }
+
+    componentDidMount(){
+        this.setState({email : sessionStorage.getItem('email')})
+    }
+
     handleChangeName=(event)=>{
         this.setState({
             name : event.target.value
@@ -25,8 +31,9 @@ class BookingForm extends Component{
     }
     handleChangePhone=(event)=>{
         this.setState({
-            phone : event.target.value
+        phone : event.target.value
         })
+       
     }
     handleChangeCheckIn=(event)=>{
         this.setState({
@@ -40,44 +47,67 @@ class BookingForm extends Component{
     }
     submitData=()=>{
         console.log(this.state)
-        fetch(bURL,{
-            method:'POST',
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(this.state)
-        })
-        .then(alert('Thanks for Choosing Us. Your booking has been placed'))
-        this.props.history.push('/viewbookings')
+        if(this.state.phone.length===10){
+            fetch(bURL,{
+                method:'POST',
+                headers:{
+                    'Accept':'application/json',
+                    'Content-Type':'application/json',
+                    'x-access-token': sessionStorage.getItem('login_token')
+                },
+                body:JSON.stringify(this.state)
+            })
+            // .then(data=>data.json())
+            .then(alert('Thanks for Choosing Us. Your booking has been placed'))
+            this.props.history.push('/viewbookings')
+        }
+        else{
+            alert("Please provide correct phone no.")
+        }
     }
     
     render(){
         const tripID = sessionStorage.getItem('tripid')
         return(
-            <div>
-                <div class="form-group" style={{padding:"20px"}}>
+            <div className="col-md-8 offset-2" style={{marginBottom:"50px"}}>
+
+                <div class="form-group">
+
                     <h1>Place Booking</h1><hr/>
-                    <div class="form-group" style={{marginTop:"30px"}}>
-                        <h5>Booking ID</h5>
-                        <input className="form-control" name="id" type='text' readOnly value={this.state.id}/>
+
+                    <div class="form-group">
+                        
                         <h5>Hotel Name</h5>
                         <input className="form-control" name="hotel_name" type="text" readOnly value={this.state.hotel_name}/>
+
                         <h5>Name</h5>
                         <input className="form-control" name="name" type="text" onChange={this.handleChangeName}/>
+
                         <h5>Phone no.</h5>
-                        <input className="form-control" name="phone" type="text" onChange={this.handleChangePhone}/>
+                        <input className="form-control" name="phone" type="number" onChange={this.handleChangePhone}/>
+
                         <h5>Check-In Date</h5>
                         <input className="form-control" name="checkIn" type ="date" onChange={this.handleChangeCheckIn}/>
+
                         <h5>Check-Out Date</h5>
                         <input className="form-control" name="checkOut" type ="date" onChange={this.handleChangeCheckOut}/>
+                        
                     </div>
-                    <button class="btn btn-outline-success" type="submit" onClick={this.submitData} value="Submit" style={{marginTop:"10px",color:'black'}}>Submit</button>
+                    
+                    <button style={{width:"150px", marginTop:"20px", marginBottom:"20px"}} class="btn btn-outline-success" type="submit" onClick={this.submitData} value="Submit">Submit</button>
+                   
+                    <br/>
+
+                    <div>
+
+                        <Link to={`/details/${tripID}`}><button style={{width:"150px"}} className="btn btn-outline-secondary" type="submit">Back</button></Link>
+
+                        <Link to={`/list/${tripID}`}><button style={{width:"150px", marginLeft:"20px"}} className="btn btn-outline-warning" type="submit">Book Another</button></Link>
+
+                    </div>
+
                 </div>
-                <div className="router_link">
-                    <Link to={`/details/${tripID}`}><button className="btn btn-outline-secondary" type="submit">Back</button></Link>
-                    <Link to={`/list/${tripID}`}><button className="btn btn-outline-warning" type="submit">Book Another Hotel</button></Link>
-                </div>
+    
             </div>
         )
     }

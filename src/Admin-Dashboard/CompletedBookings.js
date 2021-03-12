@@ -1,23 +1,39 @@
 import React from 'react' ;
-import axios from 'axios' ;
+// import axios from 'axios' ;
 import {Link} from 'react-router-dom'
-import './completedBooking.css'
 
-const bURL = "http://localhost:8900/booking_details"
+const bURL = "http://localhost:2400/bookings"
 const tdate = new Date()
 
 class CompletedBookings extends React.Component{
     state = {
-            bookingData : '',
-            filterData : ''
+        bookingData : '',
+        filterData : ''
     }
 
+
+    async componentDidMount(){
+        const today = `${tdate.getFullYear()}-${tdate.getMonth()+1}-${tdate.getDate()}`
+        fetch(bURL, {
+            method: "GET",
+            headers: { "x-access-token": sessionStorage.getItem("login_token") },
+          })
+            .then((data) => data.json())
+      
+            .then((data) => {
+              this.setState({ bookingData: data.filter((item)=>{
+                  return item.checkIn < today
+              }) });
+            });
+    }
+
+    
     filtering=(data)=>{
         if(data){
         return data.map((items)=>{
             return(
-              <tr key={items.id}>
-                <td>{items.id}</td>
+              <tr key={items._id}>
+                <td>{items._id}</td>
                 <td>{items.hotel_name}</td>
                 <td>{items.name}</td>
                 <td>{items.phone}</td>
@@ -33,12 +49,12 @@ class CompletedBookings extends React.Component{
 
     render(){
         return(
-            <div className="completed_booking">
+            <div style={{padding:"34px"}}>
                 <h1>Completed Bookings</h1>
                 <hr/>
-                {sessionStorage.getItem('role')==='Admin'?
+                {sessionStorage.getItem('role')==='admin'?
                
-                <Link to="/admindashboard"><button style={{marginBottom:"10px",color:'black'}} className="btn btn-outline-secondary" type="submit">Back</button></Link>
+                <Link to="/admindashboard"><button style={{marginBottom:"10px",width:"150px"}} className="btn btn-outline-secondary" type="submit">Back</button></Link>
                 :
                 null
                 }
@@ -60,16 +76,6 @@ class CompletedBookings extends React.Component{
                 </table>
             </div>
         )
-    }
-    async componentDidMount(){
-        const today = `${tdate.getFullYear()}-${tdate.getMonth()+1}-${tdate.getDate()}`
-        const response = await axios.get(bURL);
-        this.setState({bookingData : response.data.filter((item)=>{
-            return(
-                 item.checkIn < today
-            )
-         })
-    })
     }
 }
 
