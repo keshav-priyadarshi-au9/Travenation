@@ -1,6 +1,7 @@
 import React from 'react' ;
 // import axios from 'axios' ;
 import {Link} from 'react-router-dom'
+import { Spinner } from "react-bootstrap";
 
 // const bURL = "http://localhost:2400/bookings"
 const bURL = "https://travenation-controller.herokuapp.com/bookings"
@@ -44,13 +45,19 @@ class CompletedBookings extends React.Component{
               </tr>
             )
         })
-  
+      }
+      else {
+        return (
+        <tr>
+          <td><Spinner animation="border" role="status"></Spinner></td>
+        </tr>
+        )
       }
     }
 
     render(){
         return(
-            <div style={{padding:"34px"}}>
+            <div style={{overflow:"auto",padding:"34px"}}>
                 <h1>Completed Bookings</h1>
                 <hr/>
                 {sessionStorage.getItem('role')==='admin'?

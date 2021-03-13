@@ -17,8 +17,9 @@ const Footer = (props) => {
       else{alert("Please login first")}
     }
     return(
-        <center style={{fontSize:"larger",backgroundColor:"#f1f1f1",overflow:"hidden",height:"30vh",padding:"20px"}}>
-            <div className="row" style={{height:"20vh",overflow: "hidden"}}>
+        <center style={{fontSize:"larger",backgroundColor:"#f1f1f1",overflow:"hidden",height:"200px",padding:"20px"}}>
+
+            <div className="row" style={{height:"100px",overflow: "hidden"}}>
                 <div className="col-md-4">
                     <Link to='/'><b style={{color:"grey"}}>Home | <HomeIcon/></b></Link>
                 </div>
@@ -26,12 +27,15 @@ const Footer = (props) => {
                     <b onClick={bookings} style={{color:"grey",cursor:"pointer"}}>Bookings | <BookIcon/></b>
                 </div>
                 <div className="col-md-4">
-                    <b style={{color:"grey"}}>
+                    <b style={{color:"grey",cursor:"pointer"}}>
                         Connect |  <GitHubIcon/> <InstagramIcon/> <FacebookIcon/>
                     </b>     
                 </div>
             </div>
-            <p style={{textAlign:"center"}}><b>copyright &#169; Travenation - All rights reserved</b></p>
+            <div style={{color:"grey"}}>
+                <p><i>Developed by : Keshav Priyadarshi</i></p>
+                <p>copyright &#169; Travenation - All rights reserved</p>
+            </div>
         </center>
     )
 }

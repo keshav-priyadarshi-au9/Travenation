@@ -8,8 +8,8 @@ import image3 from "../images/image3.jpg";
 
 function Home() {
   return (
-    <div style={{marginBottom:"50px"}}>
-      <Carousel className="carousel offset-2" style={{width:"70%"}}>
+    <div className="row justify-content-md-center" style={{marginBottom:"30px",padding:"34px"}}>
+      <Carousel className="carousel" style={{width:"70%",marginLeft:"auto",marginRight:"auto"}}>
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -30,7 +30,7 @@ function Home() {
 
           <Carousel.Caption>
             <h3>Executive Banquet</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -43,13 +43,13 @@ function Home() {
           <Carousel.Caption>
             <h3>Hotel Room</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
 
-      <div className="col-md-8 offset-2" style={{marginTop:"50px"}}>
+      <div className="col-md-8" style={{marginTop:"50px"}}>
 
         <div>
           <h3>Select Destination</h3>
@@ -58,7 +58,7 @@ function Home() {
         </div>
 
         <div className="row" style={{marginTop:"50px"}}>
-          <h3>Select Type</h3>
+          <h3>Select Trip Type</h3>
           <hr/>
           <QuickSearch />
         </div>

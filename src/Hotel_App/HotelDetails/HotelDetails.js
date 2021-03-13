@@ -27,7 +27,7 @@ class HotelDetails extends Component {
         console.log(this.props.match.params.id)
         // console.log(this.state.hotel_details)
         return(
-            <div className="offset-2" style={{padding:"34px"}}>
+            <div className="justify-content-md-center" style={{padding:"34px"}}>
                 <h1>Hotel Details</h1>
                 <hr/>
                 <DetailDisplay details_data = {this.state.hotel_details}/>

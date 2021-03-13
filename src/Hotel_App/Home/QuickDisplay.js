@@ -11,7 +11,7 @@ const QuickDisplay = (props) => {
         return (
           <div className="col-md-6" key={item.trip}>
 
-            <div className="card" style={{ marginBottom: "50px", height: "60vh", padding: "10px" }}>
+            <div className="card" style={{ marginBottom: "50px", height: "400px", padding: "10px" }}>
               <img
                 src={item.image}
                 style={{height:"250px"}}

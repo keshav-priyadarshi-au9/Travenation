@@ -44,7 +44,7 @@ class View_Users extends Component{
   };
   render(){
   return (
-    <div style={{padding:"34px"}}>
+    <div style={{overflow:"auto", padding:"34px"}}>
       <h1>List Of Users</h1>
       <hr/>
         <Link to="/admindashboard"><button style={{marginBottom:"10px", width:"150px"}} className="btn btn-outline-secondary" type="submit">Back</button></Link>

@@ -14,7 +14,7 @@ class Admin_Dashboard extends Component{
             this.props.history.push('/dashboard')
         }
         return(
-            <div className="col-md-8 offset-2" style={{height:"80vh"}}>
+            <div className="col-md-8" style={{height:"80vh",padding:"34px"}}>
                 <div className="adminDashboard">
                     <h1>Welcome to Admin Dashboard</h1>
                     <hr/>

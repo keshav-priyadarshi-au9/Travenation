@@ -21,7 +21,7 @@ const DetailDisplay = (props) => {
       // console.log(details_data.name)
       const item = details_data;
       return (
-        <div >
+        <div className="col-md-8">
           <img src={item.thumb} alt="images" />
           <h3>
             {item.name}, {item.city_name}
@@ -52,7 +52,8 @@ const DetailDisplay = (props) => {
       );
     }
   };
-  return <div>{renderDetails(props)}</div>;
+  return <div className="row justify-content-md-center" style={{overflow:"hidden"}}>{renderDetails(props)}</div>;
 };
+
 
 export default withRouter(DetailDisplay);

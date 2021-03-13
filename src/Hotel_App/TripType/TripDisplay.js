@@ -10,7 +10,7 @@ const TripDisplay = (props) => {
           <div className="col-md-4" id={item._id}>
             <div
               className="card"
-              style={{ marginBottom: "50px", height: "60vh", padding: "10px" }}
+              style={{ marginBottom: "50px", height: "400px", padding: "10px" }}
             >
               <img style={{height:"250px"}} src={item.thumb} alt="images" />
 

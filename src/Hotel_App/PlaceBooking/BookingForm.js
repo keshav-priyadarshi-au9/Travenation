@@ -69,7 +69,8 @@ class BookingForm extends Component{
     render(){
         const tripID = sessionStorage.getItem('tripid')
         return(
-            <div className="col-md-8 offset-2" style={{marginBottom:"50px"}}>
+            <div className="justify-content-md-center" style={{padding:"34px"}}>
+            <div className="col-md-8" style={{marginBottom:"50px"}}>
 
                 <div class="form-group">
 
@@ -108,6 +109,7 @@ class BookingForm extends Component{
 
                 </div>
     
+            </div>
             </div>
         )
     }

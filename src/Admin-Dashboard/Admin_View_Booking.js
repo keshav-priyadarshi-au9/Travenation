@@ -156,7 +156,7 @@ class Admin_View_Booking extends Component {
 
   render() {
     return (
-      <div style={{padding:"34px"}}>
+      <div style={{padding:"34px",overflow:"auto"}}>
         <h1>Booking Details</h1>
         <hr />
         {sessionStorage.getItem("role") === "admin" ? (

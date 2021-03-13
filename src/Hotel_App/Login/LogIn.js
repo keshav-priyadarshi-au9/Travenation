@@ -50,8 +50,9 @@ class LogIn extends Component {
 
   render() {
     return (
+      <div className="justify-content-md-center" style={{padding:"34px"}}>
       <div
-        className="col-md-8 offset-2"
+        className="col-md-8"
         style={{ marginTop: "50px", marginBottom: "50px" }}
       >
         <div className="login-input" onChange={this.handler}>
@@ -110,6 +111,7 @@ class LogIn extends Component {
             Not Registered? <Link to="/signup">SignUp</Link>{" "}
           </p>
         </div>
+      </div>
       </div>
     );
   }

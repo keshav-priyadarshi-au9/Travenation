@@ -34,7 +34,7 @@ class TripType extends Component {
         // console.log("state triptype: ", this.state)
         return (
             <div style={{padding:"34px"}}>
-                <div className="offset-2">
+                <div>
                     <h1>Hotels</h1>
                     <hr/>
                 </div>
